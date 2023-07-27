@@ -74,7 +74,7 @@ def main():
         input_shape = (window_size, len(sequences[0][0]))
         model = build_lstm_model(input_shape)
 
-	# Passo 7: Treinar o modelo
+	    # Passo 7: Treinar o modelo
         batch_size = 32
         epochs = 100
         validation_split = 0.15
