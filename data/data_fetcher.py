@@ -7,7 +7,7 @@ def fetch_stock_data(api_key, symbol):
         'function': 'TIME_SERIES_DAILY',
         'symbol': symbol,
         'outputsize': 'full',  # Pode ser 'compact' (últimos 100 dias) ou 'full' (todos os dados disponíveis)
-        'apikey': api_key,
+        'apikey': 'd8d9810fe438400f9138837cd365c7dc7r', #Nesse trecho vai a minha API Key, pego no cadastro do site
     }
 
     response = requests.get(base_url, params=params)

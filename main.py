@@ -1,8 +1,8 @@
 import matplotlib.pyplot as plt
-from data_fetcher import fetch_stock_data
-from data_saver import save_data_to_json
-from data_preprocessor import preprocess_data, save_preprocessed_data
-from data_loader import load_preprocessed_data
+from data.data_fetcher import fetch_stock_data
+from data.data_saver import save_data_to_json
+from data.data_preprocessor import preprocess_data, save_preprocessed_data
+from data.data_loader import load_preprocessed_data
 from model_builder import build_lstm_model
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -47,7 +47,7 @@ def plot_predictions(y_true, predictions):
 
 def main():
     # Definir as configurações
-    api_key = 'SUA_CHAVE_DE_API_AQUI'
+    api_key = 'd8d9810fe438400f9138837cd365c7dc7r'
     symbol = 'AAPL'
     window_size = 10
     data_folder = 'data'

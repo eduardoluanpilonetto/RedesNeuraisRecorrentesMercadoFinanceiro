@@ -1,9 +1,10 @@
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 import json
+import numpy as np
 
 def preprocess_data(data, window_size):
-    df = pd.DataFrame.from_dict(data, orient='index', columns=['open', 'high', 'low', 'close', 'volume'])
+    df = pd.DataFrame.from_dict(data, orient='index', columns=['1. open', '2. high', '3. low', '4. close', '5. volume'])
     scaler = MinMaxScaler()
     normalized_data = scaler.fit_transform(df)
 
@@ -15,8 +16,16 @@ def preprocess_data(data, window_size):
 
     return sequences, labels
 
+def convert_to_serializable(item):
+    if isinstance(item, np.ndarray):
+        return item.tolist()
+    return item
+
 def save_preprocessed_data(sequences, labels, data_folder):
-    with open(f'{data_folder}/processed/sequences.json', 'w') as f:
-        json.dump(sequences, f)
-    with open(f'{data_folder}/processed/labels.json', 'w') as f:
-        json.dump(labels, f)
+    sequences_serializable = [convert_to_serializable(seq) for seq in sequences]
+    labels_serializable = [convert_to_serializable(label) for label in labels]
+
+    with open(f'{data_folder}sequences.json', 'w') as f:
+        json.dump(sequences_serializable, f)
+    with open(f'{data_folder}labels.json', 'w') as f:
+        json.dump(labels_serializable, f)
