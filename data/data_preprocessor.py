@@ -5,7 +5,7 @@ import numpy as np
 
 def preprocess_data(data, window_size):
     df = pd.DataFrame.from_dict(data, orient='index', columns=['1. open', '2. high', '3. low', '4. close', '5. volume'])
-    scaler = MinMaxScaler()
+    scaler = MinMaxScaler(feature_range=(0, 1000))
     normalized_data = scaler.fit_transform(df)
 
     sequences = []

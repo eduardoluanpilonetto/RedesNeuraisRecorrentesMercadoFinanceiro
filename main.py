@@ -48,8 +48,8 @@ def plot_predictions(y_true, predictions):
 def main():
     # Definir as configurações
     api_key = 'd8d9810fe438400f9138837cd365c7dc7r'
-    symbol = 'AAPL'
-    window_size = 10
+    symbol = 'MSFT'
+    window_size = 20
     data_folder = 'data'
 
     # Passo 1: Buscar dados usando a API do Alpha Vantage
